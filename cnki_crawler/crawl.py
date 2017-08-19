@@ -10,4 +10,4 @@ journal_id = 'JSJC' # 计算机时代
 # start_year = 1994
 for year in range(start_year, 2017):
     with open('output/' + journal_id + '_' + str(year) + '.csv', 'w') as f:
-        subprocess.call(['cnki_crawler_py/bin/python', 'toc_single_year.py', journal_id, str(year)], stdout=f)
+        subprocess.call(['../agile_china_py_env/bin/python', 'toc_single_year.py', journal_id, str(year)], stdout=f)
