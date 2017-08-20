@@ -1,4 +1,5 @@
 selenium
 pyquery
 requests
-wordcloud
+thulac
+jieba

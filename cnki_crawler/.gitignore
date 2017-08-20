@@ -2,3 +2,4 @@ config.json
 geckodriver.log
 cnki_crawler_py/
 tmp/
+node_modules/
