@@ -8,10 +8,11 @@ import subprocess
 # journal_id = 'XXXT' # 信息系统工程
 # journal_id = 'RJSJ' # 软件世界
 # journal_id = 'XDJS' # 现代计算机
-journal_id = 'ITSJ' # 程序员
+# journal_id = 'ITSJ' # 程序员
+journal_id = 'JLSJ' # IT经理世界
 
 # start_year = 2010
-start_year = 2002
-for year in range(start_year, 2011):
+start_year = 1998
+for year in range(start_year, 2017):
     with open('toc/' + journal_id + '_' + str(year) + '.csv', 'w') as f:
         subprocess.call(['../agile_china_py_env/bin/python', 'toc_single_year.py', journal_id, str(year)], stdout=f)

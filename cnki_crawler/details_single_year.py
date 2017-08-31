@@ -57,9 +57,10 @@ def crawl_single_article(session, journal_id, row, details_file):
             # pdf_content = pdf_response.content
             # with open('{}/{}'.format(details_dir(journal_id), pdf_filename), 'wb') as pdf_file:
             #     pdf_file.write(pdf_content)
+    detail_row = '{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
+        title, journal_name, year, issue, author, keywords, summary, pdf_filename, article_url)
 
-    details_file.writelines('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n'.format(
-        title, journal_name, year, issue, author, keywords, summary, pdf_filename, article_url))
+    details_file.writelines(detail_row)
 
 
 def crawl_details(session, journal_id, year):
