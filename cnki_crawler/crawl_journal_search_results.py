@@ -2,6 +2,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 
 
@@ -24,12 +25,20 @@ def login_to_lib(driver, login_id, password):
 
 def crawl_search_results():
     driver.get('http://sso.cdclib.org/interlibSSO/goto/6/=06190596Z93/kns55/')
-    driver.find_element_by_id('txt_1_value1').send_keys('敏捷')
-    driver.find_element_by_id('txt_1_value2').send_keys('软件')
+    
+    ##### search for '软件工程'
+    search_scope = Select(driver.find_element_by_id('txt_1_sel'))
+    search_scope.select_by_visible_text('篇名')
+    driver.find_element_by_id('txt_1_value1').send_keys('软件工程')
+    
+    ##### search for '敏捷+软件'
+    # driver.find_element_by_id('txt_1_value1').send_keys('敏捷')
+    # driver.find_element_by_id('txt_1_value2').send_keys('软件')
+    
     driver.find_element_by_id('btnSearch').click()
     time.sleep(5)
 
-    for page_number in range(1, 29):
+    for page_number in range(1, 99):
         driver.get('http://sso.cdclib.org/interlibSSO/goto/6/=06190596Z93/kns55/brief/brief.aspx?'
                    'curpage={}&RecordsPerPage=100&dbPrefix=SCDB&turnpage=1&QueryID=0'.format(page_number))
         article_rows = driver.find_elements_by_css_selector('.GridTableContent > tbody > tr')[1:]

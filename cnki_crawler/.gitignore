@@ -3,3 +3,6 @@ geckodriver.log
 cnki_crawler_py/
 tmp/
 node_modules/
+pdf/
+details/all_details.csv
+

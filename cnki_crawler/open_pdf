@@ -1,0 +1,1 @@
+ls pdf/|grep "$1"|xargs -I % open pdf/%
